@@ -274,7 +274,18 @@ Dropify.prototype.setPreview = function(previewable, src)
     this.hideLoader();
 
     if (previewable === true) {
-        var imgTag = $('<img />').attr('src', src);
+	    
+	var src3=src.split('.');
+    	var src2='';
+    	if((src3.length-1)>=1){
+        	for(i=0;i<src3.length-1;i++){
+        		src2 = src2.concat(src3[i]);
+        	}	
+    	}else{
+    		src2 = src;
+    	}
+	    
+        var imgTag = $('<img />').attr('src', src2);
 
         if (this.settings.height) {
             imgTag.css("max-height", this.settings.height);
